@@ -9,29 +9,44 @@ Using configuration file: S:\VCS\Git\testing/phpbench.json
 
 \Testing\ArrayBench
 
-    benchCountArray               I0 P0 	[μ Mo]/r: 0.079 0.079 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
-    benchCountSplFixedArray       I0 P0 	[μ Mo]/r: 0.082 0.082 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
-    benchReplaceFirstArray        I0 P0 	[μ Mo]/r: 0.070 0.070 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
-    benchReplaceFirstCountSplFixedArrayI0 P0 	[μ Mo]/r: 0.130 0.130 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
-    benchReplaceLastArray         I0 P0 	[μ Mo]/r: 0.066 0.066 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
-    benchReplaceLastCountSplFixedArrayI0 P0 	[μ Mo]/r: 0.121 0.121 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+    benchSetFirstArray            I0 P0 	[μ Mo]/r: 0.070 0.070 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+    benchSetFirstArrayAssoc       I0 P0 	[μ Mo]/r: 0.080 0.080 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+    benchSetLastArray             I0 P0 	[μ Mo]/r: 0.068 0.068 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+    benchSetLastArrayAssoc        I0 P0 	[μ Mo]/r: 0.076 0.076 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+    benchIterateArray             I0 P0 	[μ Mo]/r: 41,806.270 41,806.270 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+    benchIterateArrayAssoc        I0 P0 	[μ Mo]/r: 39,628.460 39,628.460 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
 
-6 subjects, 6 iterations, 6,000,000 revs, 0 rejects, 0 failures, 0 warnings
-(best [mean mode] worst) = 0.066 [0.091 0.091] 0.066 (μs)
-⅀T: 0.548μs μSD/r 0.000μs μRSD/r: 0.000%
-suite: 133c9d8ed3b76a5115f6ae0e1975ba8e56e140c2, date: 2017-12-24, stime: 13:33:41
-+------------+-------------------------------------+--------+--------+---------+------+-------------+----------+--------------+----------------+
-| benchmark  | subject                             | groups | params | revs    | iter | mem_peak    | time_rev | comp_z_value | comp_deviation |
-+------------+-------------------------------------+--------+--------+---------+------+-------------+----------+--------------+----------------+
-| ArrayBench | benchCountArray                     |        | []     | 1000000 | 0    | 53,192,232b | 0.079μs  | 0.00σ        | 0.00%          |
-| ArrayBench | benchCountSplFixedArray             |        | []     | 1000000 | 0    | 53,192,280b | 0.082μs  | 0.00σ        | 0.00%          |
-| ArrayBench | benchReplaceFirstArray              |        | []     | 1000000 | 0    | 53,192,280b | 0.070μs  | 0.00σ        | 0.00%          |
-| ArrayBench | benchReplaceFirstCountSplFixedArray |        | []     | 1000000 | 0    | 53,192,376b | 0.130μs  | 0.00σ        | 0.00%          |
-| ArrayBench | benchReplaceLastArray               |        | []     | 1000000 | 0    | 53,192,280b | 0.066μs  | 0.00σ        | 0.00%          |
-| ArrayBench | benchReplaceLastCountSplFixedArray  |        | []     | 1000000 | 0    | 53,192,376b | 0.121μs  | 0.00σ        | 0.00%          |
-+------------+-------------------------------------+--------+--------+---------+------+-------------+----------+--------------+----------------+
+\Testing\ArrayVsSplFixedArrayBench
+
+    benchCountArray               I0 P0 	[μ Mo]/r: 0.078 0.078 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+    benchCountSplFixedArray       I0 P0 	[μ Mo]/r: 0.084 0.084 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+    benchReplaceFirstArray        I0 P0 	[μ Mo]/r: 0.068 0.068 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+    benchReplaceFirstCountSplFixedArrayI0 P0 	[μ Mo]/r: 0.122 0.122 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+    benchReplaceLastArray         I0 P0 	[μ Mo]/r: 0.068 0.068 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+    benchReplaceLastCountSplFixedArrayI0 P0 	[μ Mo]/r: 0.122 0.122 (μs) 	[μSD μRSD]/r: 0.000μs 0.00%
+
+12 subjects, 12 iterations, 10,000,200 revs, 0 rejects, 0 failures, 0 warnings
+(best [mean mode] worst) = 0.068 [6,786.297 6,786.297] 0.068 (μs)
+⅀T: 81,435.568μs μSD/r 0.000μs μRSD/r: 0.000%
+suite: 133c9d8d29153b3808b103bcc014f676a5fb0f8b, date: 2017-12-24, stime: 15:06:00
++---------------------------+-------------------------------------+--------+--------+---------+------+--------------+--------------+--------------+----------------+
+| benchmark                 | subject                             | groups | params | revs    | iter | mem_peak     | time_rev     | comp_z_value | comp_deviation |
++---------------------------+-------------------------------------+--------+--------+---------+------+--------------+--------------+--------------+----------------+
+| ArrayBench                | benchSetFirstArray                  |        | []     | 1000000 | 0    | 354,164,752b | 0.070μs      | 0.00σ        | 0.00%          |
+| ArrayBench                | benchSetFirstArrayAssoc             |        | []     | 1000000 | 0    | 354,164,752b | 0.080μs      | 0.00σ        | 0.00%          |
+| ArrayBench                | benchSetLastArray                   |        | []     | 1000000 | 0    | 354,164,752b | 0.068μs      | 0.00σ        | 0.00%          |
+| ArrayBench                | benchSetLastArrayAssoc              |        | []     | 1000000 | 0    | 354,164,752b | 0.076μs      | 0.00σ        | 0.00%          |
+| ArrayBench                | benchIterateArray                   |        | []     | 100     | 0    | 354,164,752b | 41,806.270μs | 0.00σ        | 0.00%          |
+| ArrayBench                | benchIterateArrayAssoc              |        | []     | 100     | 0    | 354,164,752b | 39,628.460μs | 0.00σ        | 0.00%          |
+| ArrayVsSplFixedArrayBench | benchCountArray                     |        | []     | 1000000 | 0    | 53,192,352b  | 0.078μs      | 0.00σ        | 0.00%          |
+| ArrayVsSplFixedArrayBench | benchCountSplFixedArray             |        | []     | 1000000 | 0    | 53,192,400b  | 0.084μs      | 0.00σ        | 0.00%          |
+| ArrayVsSplFixedArrayBench | benchReplaceFirstArray              |        | []     | 1000000 | 0    | 53,192,400b  | 0.068μs      | 0.00σ        | 0.00%          |
+| ArrayVsSplFixedArrayBench | benchReplaceFirstCountSplFixedArray |        | []     | 1000000 | 0    | 53,192,496b  | 0.122μs      | 0.00σ        | 0.00%          |
+| ArrayVsSplFixedArrayBench | benchReplaceLastArray               |        | []     | 1000000 | 0    | 53,192,400b  | 0.068μs      | 0.00σ        | 0.00%          |
+| ArrayVsSplFixedArrayBench | benchReplaceLastCountSplFixedArray  |        | []     | 1000000 | 0    | 53,192,496b  | 0.122μs      | 0.00σ        | 0.00%          |
++---------------------------+-------------------------------------+--------+--------+---------+------+--------------+--------------+--------------+----------------+
 
 
-Process finished with exit code 0 at 13:33:44.
-Execution time: 7 058 ms.
+Process finished with exit code 0 at 15:06:21.
+Execution time: 28 014 ms.
 ```

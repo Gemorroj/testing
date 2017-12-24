@@ -16,61 +16,73 @@ class ArrayBench
      */
     private $array;
     /**
-     * @var \SplFixedArray
+     * @var array
      */
-    private $splFixedArray;
+    private $arrayAssoc;
 
     public function init()
     {
         $this->array = \range(0, 1000000);
-        $this->splFixedArray = \SplFixedArray::fromArray($this->array);
+        \array_walk($this->array, function (&$item, $key) {
+            $item = \uniqid('test_', true);
+        });
+        $this->array[0] = 'test0';
+        $this->array[1000000] = 'test1000000';
+
+        $this->arrayAssoc = \array_flip($this->array);
+    }
+
+
+    /**
+     * @Revs(1000000)
+     */
+    public function benchSetFirstArray()
+    {
+        $this->array[0] = 'test test';
     }
 
     /**
      * @Revs(1000000)
      */
-    public function benchCountArray()
+    public function benchSetFirstArrayAssoc()
     {
-        \count($this->array);
+        $this->arrayAssoc['test0'] = 'test test';
+    }
+
+
+    /**
+     * @Revs(1000000)
+     */
+    public function benchSetLastArray()
+    {
+        $this->array[1000000] = 'test test';
     }
 
     /**
      * @Revs(1000000)
      */
-    public function benchCountSplFixedArray()
+    public function benchSetLastArrayAssoc()
     {
-       $this->splFixedArray->count();
+        $this->arrayAssoc['test1000000'] = 'test test';
     }
 
     /**
-     * @Revs(1000000)
+     * @Revs(100)
      */
-    public function benchReplaceFirstArray()
+    public function benchIterateArray()
     {
-        $this->array[0] = 'test';
+        foreach ($this->array as $key => $value) {
+            //echo $value;
+        }
     }
 
     /**
-     * @Revs(1000000)
+     * @Revs(100)
      */
-    public function benchReplaceFirstCountSplFixedArray()
+    public function benchIterateArrayAssoc()
     {
-        $this->splFixedArray->offsetSet(0, 'test');
-    }
-
-    /**
-     * @Revs(1000000)
-     */
-    public function benchReplaceLastArray()
-    {
-        $this->array[1000000] = 'test';
-    }
-
-    /**
-     * @Revs(1000000)
-     */
-    public function benchReplaceLastCountSplFixedArray()
-    {
-        $this->splFixedArray->offsetSet(1000000, 'test');
+        foreach ($this->arrayAssoc as $key => $value) {
+            //echo $value;
+        }
     }
 }
