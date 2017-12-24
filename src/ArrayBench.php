@@ -69,20 +69,71 @@ class ArrayBench
     /**
      * @Revs(100)
      */
-    public function benchIterateArray()
+    public function benchForeachArray()
     {
         foreach ($this->array as $key => $value) {
-            //echo $value;
+            $value;
         }
     }
 
     /**
      * @Revs(100)
      */
-    public function benchIterateArrayAssoc()
+    public function benchForeachArrayAssoc()
     {
         foreach ($this->arrayAssoc as $key => $value) {
-            //echo $value;
+            $value;
+        }
+    }
+
+    /**
+     * @Revs(100)
+     */
+    public function benchForPreCountArray()
+    {
+        for ($i = 0, $l = \count($this->array); $i < $l; ++$i) {
+            $this->array[$i];
+        }
+    }
+
+    /**
+     * @Revs(100)
+     */
+    public function benchForCountArray()
+    {
+        for ($i = 0; $i < \count($this->array); ++$i) {
+            $this->array[$i];
+        }
+    }
+
+
+    /**
+     * @Revs(100)
+     */
+    public function benchForeachChangeArray()
+    {
+        foreach ($this->array as &$value) {
+            $value = 'test';
+        }
+    }
+
+    /**
+     * @Revs(100)
+     */
+    public function benchForeachChangeArrayAssoc()
+    {
+        foreach ($this->arrayAssoc as &$value) {
+            $value = 0;
+        }
+    }
+
+    /**
+     * @Revs(100)
+     */
+    public function benchForChangeArray()
+    {
+        for ($i = 0, $l = \count($this->array); $i < $l; ++$i) {
+            $this->array[$i] = 'tes1';
         }
     }
 }
