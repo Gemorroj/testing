@@ -60,3 +60,5 @@ suite: 133c9d8d729a91947ab25e875d15134364db3a37, date: 2017-12-24, stime: 15:25:
 Process finished with exit code 0 at 15:26:53.
 Execution time: 64 447 ms.
 ```
+
+TODO: https://medium.com/@rtheunissen/efficient-data-structures-for-php-7-9dda7af674cd
