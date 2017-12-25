@@ -10,6 +10,8 @@
     ],
     "require": {
         "php": ">=7.1",
+        "ext-ds": "*",
+        "php-ds/php-ds": "^1.2",
         "phpbench/phpbench": "^1.0@dev"
     },
     "autoload": {
