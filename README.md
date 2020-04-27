@@ -1,7 +1,6 @@
 # Testing
 some performance tests
 
-
 ```
 > S:\OpenServer\modules\php\PHP-7.1-x64\php.exe S:\VCS\Git\testing\vendor\phpbench\phpbench\bin\phpbench run src/ --report=default
 PhpBench 0.15-dev (@git_version@). Running benchmarks.
